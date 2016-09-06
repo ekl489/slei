@@ -1,0 +1,164 @@
+1.8
+-On Sharpen sword then parry it says "You try to sharpen your sword but there is no effect!" despite no actually choosing "Sharpen Sword"
+-Potions is dark
+-Add text to win/loss
+-color the alerts
+
+
+
+
+
+----Types of Alerts----
+-You have found a potion    -Warning
+-You repeated the attack and this time isn't as strong. -Warning
+-You dealt x damage!    -Succeed
+-The enemy did x damage!    -Danger
+-Blocked they're attack!    -Warning
+-Roll the dice give yous x damage!  -Warning
+-But the enemy blocked your attack! -Danger
+-You search your pocket for a potion but you don't find one. Your stupidity has let you down. -Danger
+-The enemy gets 20 extra damage!    -Warning
+-Your lunge healed you by 5 health. -Succeed
+-You drank a potion and healed 30 health. -Succeed
+-You get a 10 damage buff! - Warning
+
+-Roll the dice: Warning
+
+
+
+
+
+
+
+-Health doesn't update on play again until second round.
+-Fix help menu
+-Potions, buffs Repeating
+-Roll the dice
+-Sometimes no damage is done
+-Parry doesn't work on repeats, parry says 5 damage
+-Buff doesn't work on Lunge, Lunge doesn't do shit, Lunge does more than 15
+
+
+//New
+--Stage 1--
+-Add potion heal, lunge heal - to health bar
+-Colour each attack
+
+--Stage 2--
+-Classes, Difficulty
+
+
+//Old
+//Clear feedback
+feedback.fill(null);
+
+switch(attackSelection){
+case 1:
+playerDamage = Math.floor((Math.random() * 25) + 5);
+break;
+case 2:
+if(Math.floor(Math.random() * 6) == 0){
+playerDamage = 30;
+feedback.push(AlertSuccess("You hit a critical!"));
+}
+else{
+playerDamage = 5;
+}
+break;
+case 3:
+playerDamage = 25;
+//+15 damage buff to enemy;
+enemybuff = 2;
+break;
+case 4:
+playerDamage = Math.floor((Math.random() * 15) + 5);            
+//heal damage done
+feedback.push(AlertInfo("You healed <strong>" + playerDamage + "</strong> health."));
+break;
+case 5:
+playerDamage = 0;
+//parry
+parry = 2;
+break;
+case 6:
+playerDamage = 0;
+//+10 damage buff
+sharpensword = 2;
+break;  
+case 7:
+playerDamage = 0;
+//drink potion
+if(potions > 0){
+potions--;
+feedback.push(AlertInfo("You drank a potion and healed <strong>30 health</strong>."));
+playerHealth += 30;
+}
+else{
+feedback.push(AlertDanger("You search your pocket for a potion but you don't find one. Your stupidity has let you down."));
+}
+break;
+case 8:
+playerDamage = 0;
+//roll the dice
+break;
+default:
+break;
+} //Attack Selection 
+
+//Enemy Damage
+enemyDamage = 10;
+
+//Apply Damage 
+if(lastAttack == attackSelection){                 //Repeated Attack --?
+feedback.push(AlertDanger("You repeated the attack and this time isn't as strong."));
+playerDamage = Math.floor(playerDamage / 2);
+}
+feedback.push(AlertInfo("You did <strong>" + playerDamage + "</strong> damage!"));
+if(Math.floor((Math.random() * 7) + 0) == 0){
+feedback.push(AlertWarning("<strong>But!</strong> The enemy blocked your attack!"));
+playerDamage = 0;
+} //Enemy Parry --?
+if(sharpensword == 1){
+playerDamage += 10;
+feedback.push(AlertInfo("You get a <strong>10 damage</strong> buff!"));
+sharpensword--;
+}                        //Sharpen Sword --?
+else{
+sharpensword--;
+} 
+enemyHealth -= playerDamage;                      //Deal Player Damage
+
+if(parry == 1){ //Parry?
+parry--;
+//You parried the attack!
+feedback.push(AlertInfo("The enemy did <strong>" + enemyDamage + "</strong> damage but was blocked by your parry!"));
+}                               //Parry --?
+else{
+if(enemybuff == 1){
+enemyDamage += 15;
+feedback.push(AlertDanger("The enemy gets a <strong>15 damage</strong> buff!"));
+enemybuff--;
+}                       //Enemy Buff --?
+else{
+enemybuff--;
+}
+playerHealth -= enemyDamage;                  //Deal Enemy Damage
+feedback.push(AlertInfo("The enemy did <strong>" + enemyDamage + "</strong> damage!"))
+parry--;
+}
+if(attackSelection == 4){
+playerHealth += playerDamage;
+}
+
+//Find a potion --?
+if(Math.floor((Math.random() * 6) + 0) == 0){
+feedback.push(AlertInfo("You have found a potion!"));
+potions++;
+}
+
+//End of Round
+lastAttack = attackSelection;
+CheckForWinOrLoss();
+firstRound = false;
+UpdateData();
+ShowAlerts();

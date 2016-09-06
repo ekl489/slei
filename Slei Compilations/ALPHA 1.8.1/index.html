@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Resources -->
+        <script src="js/jquery-1.12.4.min.js"></script>      
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"/>
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'/>
+        <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.5/darkly/bootstrap.min.css" rel="stylesheet" />
+        
+        <!-- My Stuff -->
+        <title>Slei</title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+        <link rel="icon" href="icon/favicon.ico">
+    </head>
+    <body>
+        <!-- Title -->
+        <div class="jumbotron jumbotitle">
+            <div class="container">
+                <h1>Slei</h1>
+            </div>
+        </div>
+        
+        <!-- Game Window -->
+        <div class="jumbotron game">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Slei ALPHA V1.8</a>
+                </div>
+                <a href="#"><button class="btn" style="float: right; margin: 5px;" data-toggle="modal" data-target="#info-menu">Info <span class="glyphicon glyphicon-info-sign"></span></button></a>
+                <a href="#"><button class="btn" style="float: right; margin: 5px;" data-toggle="modal" data-target="#help-menu">Help <span class="glyphicon glyphicon-question-sign"></span></button></a>
+            </nav> <!-- NavBar -->
+            <div class="container" id="game">
+                <!-- Difficulty Selection -->
+                <div id="part1" class="part">                    
+                    <ul id="o-select">
+                        <li><h2>Select Difficulty:</h2></li>
+                        <li>
+                            <button type="button" class="buttonDropDown btn btn-primary btn-lg btn-block" id="d1">Easy
+                                <ul class="list-group dropDownMenu">
+                                    <li><hr></li>
+                                    <li>-<strong>+20</strong> Health</li>
+                                    <li>-Receives more potion drops</li>
+                                    <li>-Potions are displayed</li>
+                                </ul>
+                            </button>                           
+                        </li> <!-- Easy -->
+                        <li>
+                            <button type="button" class="buttonDropDown btn btn-primary btn-lg btn-block" id="d2">Medium
+                                <ul class="list-group dropDownMenu">
+                                    <li><hr></li>
+                                    <li>-Potions are <strong>not</strong> displayed</li>
+                                    <li>-Enemy has <strong>+5</strong> damage</li>
+                                    <li>-All classes are unlocked</li>
+                                </ul>
+                            </button>                           
+                        </li> <!-- Medium -->
+                        <li>
+                            <button type="button" class="buttonDropDown btn btn-primary btn-lg btn-block" id="d3">Hard
+                                <ul class="list-group dropDownMenu">
+                                    <li><hr></li>
+                                    <li>-Potions are <strong>not</strong> displayed</li>
+                                    <li>-Enemy has <strong>+15</strong> damage</li>
+                                    <li>-All classes are unlocked</li>
+                                </ul>
+                            </button>                           
+                        </li> <!-- Hard -->
+                        <li>
+                            <button type="button" class="buttonDropDown btn btn-danger btn-lg btn-block" id="d4">Insane
+                                <ul class="list-group dropDownMenu">
+                                    <li><hr></li>
+                                    <li>-Potions are <strong>not</strong> displayed</li>
+                                    <li>-Enemy has <strong>+15 - 25</strong> damage</li>
+                                    <li>-Enemy has <strong>+40</strong> health</li>
+                                    <li>-Non special classes do less damage</li>
+                                    <li>-Cannot roll the dice</li>
+                                    <li>-All classes are unlocked</li>
+                                </ul>
+                            </button>                           
+                        </li> <!-- Insane -->
+                    </ul>
+                </div>
+                
+                <!-- Class Selection: Easy Classes -->
+                <div id="part2Easy" class='part' style="display: none">  
+                    <ul style="list-style: none; padding-left: 0px;">
+                        <li><h2>Select Class:</h2></li>
+                        <li><table>
+                            <tr id="classRow">                                
+                                <th> <!-- Midrange -->
+                                    <h3>Easy Classes</h3>
+                                    <ul id="o-select">
+                                        <li>
+                                            <button type="button" class="buttonDropDown btn btn-success btn-lg btn-block" id="c6">Knight                      
+                                                <ul class="dropDownMenu">
+                                                    <li><hr></li>
+                                                    <li>-<strong>120</strong> Health</li>
+                                                    <li>-Heals <strong>3</strong> to <strong>4</strong> health each round</li>
+                                                </ul>
+                                            </button>                           
+                                        </li> <!-- Knight --> 
+                                        <li>
+                                            <button type="button" class="buttonDropDown btn btn-success btn-lg btn-block" id="c7">Orc                     
+                                                <ul class="dropDownMenu">
+                                                    <li><hr></li>
+                                                    <li>-<strong>120</strong> Health</li>
+                                                    <li>-Randomly does extra <strong>15</strong> damage</li>
+                                                </ul>
+                                            </button>                           
+                                        </li> <!-- Orc -->   
+                                        <li>
+                                            <button type="button" class="buttonDropDown btn btn-success btn-lg btn-block" id="c8">Elf                    
+                                                <ul class="dropDownMenu">
+                                                    <li><hr></li>
+                                                    <li>-<strong>120</strong> Health</li>
+                                                    <li>-Randomly dodges enemy attack</li>
+                                                </ul>
+                                            </button>                           
+                                        </li> <!-- Elf -->
+                                        <li>
+                                            <button type="button" class="buttonDropDown btn btn-success btn-lg btn-block" id="c9">Witch                     
+                                                <ul class="dropDownMenu">
+                                                    <li><hr></li>
+                                                    <li>-<strong>140</strong> Health</li>
+                                                    <li>-Special <i>Curse</i> attack. Set enemy and your health to 70.</li>
+                                                </ul>
+                                            </button>                           
+                                        </li> <!-- Witch -->
+                                    </ul>
+                                </th> <!-- Midrange -->
+                            </tr>
+                            </table></li>
+                    </ul>
+                </div>
+                
+                <!-- Class Selection -->
+                <div id="part2" class="part" style="display: none">  
+                    <ul style="list-style: none; padding-left: 0px;">
+                        <li><h2>Select Class:</h2></li>
+                        <li>
+                            <h3>
+                                <ul>
+                                    <li><p class="bg-success">Main</p></li>
+                                    <li><p class="bg-info">Experienced</p></li>
+                                    <li><p class="bg-warning">Hard</p></li>
+                                    <li><p class="bg-danger">Insane</p></li>
+                                </ul>
+                            </h3>
+                        </li>
+                        <li><table>
+                            <tr id="classRow">                                
+                                <th> <!-- Lightweight -->
+                                    <h3>Lightweight</h3>
+                                    <ul id="o-select">
+                                        <li>
+                                            <button type="button" class="buttonDropDown btn btn-info btn-lg btn-block" id="c1">Rogue  
+                                                <ul class="list-group dropDownMenu">
+                                                    <li><hr></li>
+                                                    <li>-<strong>100</strong> Health</li>
+                                                    <li>-Receives more potion drops</li>
+                                                    <li>-Potions heal <strong>+5</strong> health</li>
+                                                </ul>
+                                            </button>                           
+                                        </li> <!-- Rogue -->
+                                        <li>
+                                            <button type="button" class="buttonDropDown btn btn-info btn-lg btn-block" id="c2">Paladin                     
+                                                <ul class="dropDownMenu">
+                                                    <li><hr></li>
+                                                    <li>-<strong>100</strong> Health</li>
+                                                    <li>-No Potions</li>
+                                                    <li>-Can use <i>Healing Orb</i> to gain 10-20 health (or small chance of <strong>0</strong>) anytime</li>
+                                                </ul>
+                                            </button>                           
+                                        </li> <!-- Paladin -->
+                                        <li>
+                                            <button type="button" class="buttonDropDown btn btn-info btn-lg btn-block" id="c3">Goblin                     
+                                                <ul class="dropDownMenu">
+                                                    <li><hr></li>
+                                                    <li>-<strong>70</strong> Health</li>
+                                                    <li>-Extra <strong>8</strong> damage</li>
+                                                </ul>
+                                            </button>                           
+                                        </li> <!-- Goblin -->
+                                        <li>
+                                            <button type="button" class="buttonDropDown btn btn-info btn-lg btn-block" id="c4">Thief                    
+                                                <ul class="list-group dropDownMenu">
+                                                    <li><hr></li>
+                                                    <li>-<strong>50</strong> Health</li>
+                                                    <li>-Can use <i>Steal</i> to not take damage, and enemy will lose health by half their damage</li>
+                                                </ul>
+                                            </button>                           
+                                        </li> <!-- Thief -->
+                                        <li>
+                                            <button type="button" class="buttonDropDown btn btn-warning btn-lg btn-block" id="c5">Alchemist                    
+                                                <ul class="dropDownMenu">
+                                                    <li><hr></li>
+                                                    <li>-<strong>30</strong> Health</li>
+                                                    <li>-Can use <i>Poison Knife</i> for <strong>+20</strong> damage buff</li>
+                                                    <li>-Finds more potions</li>
+                                                </ul>
+                                            </button>                           
+                                        </li> <!--Alchemist -->
+                                    </ul>
+                                </th> <!-- Lightweight -->
+                                <th> <!-- Midrange -->
+                                    <h3>Midrange</h3>
+                                    <ul id="o-select">
+                                        <li>
+                                            <button type="button" class="buttonDropDown btn btn-success btn-lg btn-block" id="c6">Knight                      
+                                                <ul class="dropDownMenu">
+                                                    <li><hr></li>
+                                                    <li>-<strong>120</strong> Health</li>
+                                                    <li>-Heals <strong>3</strong> to <strong>4</strong> health each round</li>
+                                                </ul>
+                                            </button>                           
+                                        </li> <!-- Knight --> 
+                                        <li>
+                                            <button type="button" class="buttonDropDown btn btn-success btn-lg btn-block" id="c7">Orc                     
+                                                <ul class="dropDownMenu">
+                                                    <li><hr></li>
+                                                    <li>-<strong>120</strong> Health</li>
+                                                    <li>-Randomly does extra <strong>15</strong> damage</li>
+                                                </ul>
+                                            </button>                           
+                                        </li> <!-- Orc -->   
+                                        <li>
+                                            <button type="button" class="buttonDropDown btn btn-success btn-lg btn-block" id="c8">Elf                    
+                                                <ul class="dropDownMenu">
+                                                    <li><hr></li>
+                                                    <li>-<strong>120</strong> Health</li>
+                                                    <li>-Randomly dodges enemy attack</li>
+                                                </ul>
+                                            </button>                           
+                                        </li> <!-- Elf -->
+                                        <li>
+                                            <button type="button" class="buttonDropDown btn btn-success btn-lg btn-block" id="c9">Witch                     
+                                                <ul class="dropDownMenu">
+                                                    <li><hr></li>
+                                                    <li>-<strong>140</strong> Health</li>
+                                                    <li>-Special <i>Curse</i> attack. Set enemy and your health to 70.</li>
+                                                </ul>
+                                            </button>                           
+                                        </li> <!-- Witch -->
+                                    </ul>
+                                </th> <!-- Midrange -->
+                                <th> <!-- Tank -->
+                                    <h3> Tank</h3>
+                                    <ul id="o-select">
+                                        <li>
+                                            <button type="button" class="buttonDropDown btn btn-primary btn-lg btn-success btn-block" id="c10">Troll                     
+                                                <ul class="dropDownMenu">
+                                                    <li><hr></li>
+                                                    <li>-<strong>500</strong> Health</li>
+                                                    <li>-Damage only does <strong>4</strong>/<strong>5</strong>ths of normal damage</li>
+                                                </ul>
+                                            </button>                           
+                                        </li> <!-- Troll -->
+                                        <li>
+                                            <button type="button" class="buttonDropDown btn btn-info btn-lg btn-block" id="c11">Samurai                     
+                                                <ul class="dropDownMenu">
+                                                    <li><hr></li>
+                                                    <li>-<strong>600</strong> Health</li>
+                                                    <li>-Takes triple damage</li>
+                                                    <li>-Parry will block in <strong>2</strong> moves instead of <strong>1</strong></li>
+                                                </ul>
+                                            </button>                           
+                                        </li> <!-- Samurai -->
+                                        <li>
+                                            <button type="button" class="buttonDropDown btn btn-warning btn-lg btn-block" id="c12">Giant                     
+                                                <ul class="dropDownMenu">
+                                                    <li><hr></li>
+                                                    <li>-<strong>500</strong> Health</li>
+                                                    <li>-Enemy gains <strong>500</strong> health</li>
+                                                    <li>-Will miss attacks sometimes</li>
+                                                    <li>-Does <strong>4x</strong> more damage, enemy does <strong>3x</strong> more damage</li>
+                                                </ul>
+                                            </button>                           
+                                        </li> <!-- Giant -->
+                                        <li>
+                                            <button type="button" class="buttonDropDown btn btn-info btn-lg btn-block" id="c13">Ogre                      
+                                                <ul class="dropDownMenu">
+                                                    <li><hr></li>
+                                                    <li>-<strong>1000</strong> Health</li>
+                                                    <li>-Bleeds <strong>20</strong> to <strong>50</strong> health each round</li>
+                                                </ul>
+                                            </button>                           
+                                        </li> <!--Ogre -->
+                                        <li>
+                                            <button type="button" class="buttonDropDown btn btn-warning btn-lg btn-block" id="c14">Vampire                      
+                                                <ul class="dropDownMenu">
+                                                    <li><hr></li>
+                                                    <li>-<strong>1000</strong> Health</li>
+                                                    <li>-Enemy gets <strong>+100</strong> health</li>
+                                                    <li>-When attacks will lose health by double their damage</li>
+                                                    <li>-Bleeds <strong>5</strong> to <strong>10</strong> health each round</li>
+                                                </ul>
+                                            </button>                           
+                                        </li> <!-- Vampire -->
+                                    </ul>
+                                </th> <!-- Tank -->
+                                <th> <!-- Special -->
+                                    <h3> Special</h3>
+                                    <ul id="o-select">
+                                        <li>
+                                            <button type="button" class="buttonDropDown btn btn-danger btn-lg btn-block" id="c15">Dragon                    
+                                                <ul class="dropDownMenu">
+                                                    <li><hr></li>
+                                                    <li>-<strong>750</strong> Health</li>
+                                                    <li>-Enemy gets <strong>+850</strong> health</li>
+                                                    <li>-Special attacks such as:
+                                                        <ul>
+                                                            <li><i>Breath Fire</i></li>
+                                                            <li><i>Bite</i></li>
+                                                            <li><i>Claw Slash</i></li>
+                                                            <li><i>Wind Dodge (rare)</i></li>
+                                                            <li><i>Rage (rare)</i></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>-No potions.</li>
+                                                </ul>
+                                            </button>                           
+                                        </li> <!-- Dragon -->
+                                        <li>
+                                            <button type="button" class="buttonDropDown btn btn-danger btn-lg btn-block" id="c16">Dwarf                    
+                                                <ul class="dropDownMenu">
+                                                    <li><hr></li>
+                                                    <li>-<strong>30</strong> Health</li>
+                                                    <li>-Takes double damage</li>
+                                                    <li>-Can use <i>Mighty Shield</i> to heal <strong>120</strong> to <strong>220</strong> health</li>
+                                                </ul>
+                                            </button>                           
+                                        </li> <!--Dwarf -->
+                                        <li>
+                                            <button type="button" class="buttonDropDown btn btn-danger btn-lg btn-block" id="c17">Reaper                     
+                                                <ul class="dropDownMenu">
+                                                    <li><hr></li>
+                                                    <li>-<strong>70</strong> Health</li>
+                                                    <li>-Buffs can stack</li>
+                                                    <li>-Can use <i>Soul Tear</i>  to take no damage and make enemy bleed <strong>1</strong> to <strong>3</strong> damage for up to <strong>7</strong> turns</li>
+                                                </ul>
+                                            </button>                           
+                                        </li> <!-- Reaper -->
+                                    </ul>
+                                </th> <!-- Special -->
+                            </tr>
+                            </table></li>
+                    </ul>
+                </div>
+                
+                <!-- Attack Selection -->
+                <div id="part3" class="part" style="display: none">                    
+                    <ul id="o-select">
+                        <li><h2>Your Health: <span class="health-display" id="player-health">100</span></h2></li>
+                        <li><h2>Enemy Health: <span class="health-display" id="enemy-health">100</span></h2></li>
+                        <li><h2 id="potions"></h2></li>
+                        <li><br></li>
+                        <li><h2 style="color:#33f">Select Attack:</h2></li>
+                        <li><a href="#"><button type="button" class="btn btn-primary btn-lg btn-block" id="a1"><abbr title="5 - 25 Damage">Stab - [5 - 25 Damage]</abbr></button></a></li>
+                        <li><a href="#"><button type="button" class="btn btn-primary btn-lg btn-block" id="a2"><abbr title="5 damage + a small chance of 30 damage">Slice - [5 damage + a small chance of 30 damage]</abbr></button></a></li>
+                        <li><a href="#"><button type="button" class="btn btn-primary btn-lg btn-block" id="a3"><abbr title="25 damage + 15 damage on enemies next attack">Swing - [25 damage + 15 damage on enemies next attack]</abbr></button></a></li>
+                        <li><a href="#"><button type="button" class="btn btn-primary btn-lg btn-block" id="a4"><abbr title="5 - 15 damage + heal damage done to enemy">Lunge - [5 - 15 damage + heal damage done to enemy]</abbr></button></a></li>
+                        <li><a href="#"><button type="button" class="btn btn-primary btn-lg btn-block" id="a5"><abbr title="Block enemy's next attack">Parry - [Block enemy's next attack]</abbr></button></a></li>
+                        <li><a href="#"><button type="button" class="btn btn-primary btn-lg btn-block" id="a6"><abbr title="+10 damage on next attack">Sharpen Sword - [+10 damage on next attack]</abbr></button></a></li>
+                        <li><a href="#"><button type="button" class="btn btn-primary btn-lg btn-block" id="a7">Drink Potion</button></a></li>
+                        <li><a href="#"><button type="button" class="btn btn-primary btn-lg btn-block" id="a8">Roll the dice</button></a></li>
+                    </ul>
+                </div>
+                
+                <!-- Results Display -->
+                <div id="part4" class="part" style="display: none">                    
+                    <ul id="o-select">
+                        <li><h2>Your Health: <span class="health-display" id="player-health2">100</span></h2></li>
+                        <li><h2>Enemy Health: <span class="health-display" id="enemy-health2">100</span></h2></li>
+                        <li><h2 id="potions2"></h2></li>
+                        <li id="feedback"></li>
+                        <li><a href="#"><button type="button" class="btn btn-primary btn-lg btn-block" id="next">Got it!</button></a></li>
+                    </ul>
+                </div>
+                
+                <!-- Win/Loss/Draw -->
+                <div id="endGameScreen" class="part" style="display: none">                    
+                    <ul id="o-select">
+                        <li><br></li>
+                        <div id="endGameText">You have won!</div>
+                        <li><a href="#"><button type="button" class="btn btn-primary btn-lg btn-block" id="resetGame">Play again!</button></a></li>
+                    </ul>
+                </div>
+            </div> <!-- Game Content -->
+        </div>
+        
+        <!-- Help Screen Modal -->
+        <div id="help-menu" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Slei Help</h4>
+                    </div>
+                    <div class="modal-body">
+                        <span class="bg-warning"><span class="glyphicon glyphicon-info-sign"></span> <i>Setting up a Game</i></span><br>
+                        <ol>
+                            <li>First select your difficulty, you can select <span class="bg-success">Easy</span>, <span class="bg-success">Medium</span> or <span class="bg-success">Hard</span>. This will affect different aspects of the game greatly. Beginners are recommended to start with the <span class="bg-success">Easy</span> mode.</li>
+                            <li>Once a difficulty has been selected you must now select a class, classes also affect the game but their changes mainly focus on your <span class="bg-success">Health</span>, <span class="bg-success">Damage</span> and <span class="bg-success">Special Attacks</span>. If a class doesn't have any special attacks, they will have the ability to <span class="bg-success">Roll the Dice</span>.</li>
+                            <li>Once the settings for the game have been chosen, you now are ready to fight. You now must select attacks to fight the enemy. You can also <span class="bg-success">Drink a Potion</span>, <span class="bg-success">Parry</span>, or give yourself buffs like <span class="bg-success">Sharpen Sword</span>.</li>
+                        </ol>
+                        <span class="bg-warning"><span class="glyphicon glyphicon-info-sign"></span> <i>Tips &amp; Tricks</i></span><br>
+                        <ul>
+                            <li>If you repeat an attack, it will be significantly less effective.</li>
+                            <li>Rolling the dice can have good and bad consequences.</li>
+                            <li>Unless in Easy mode, the amount of potions the player has is not displayed, so it is vital to be aware of this. It is also recommended that you drink a potion as soon as you can.</li>
+                            <li>Try to use combinations to put you at an advantage. For example use Sharpen Sword before a Lunge to gain extra health.</li>
+                        </ul>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+        <!-- Version Info Menu -->
+        <div id="info-menu" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Slei Changelog and Credits</h4>
+                    </div>
+                    <div class="modal-body">
+                        <span>This game was made by Nicholas Ramsay.</span>
+                        <ul>
+                            <li><i>Changelog</i></li>
+                            <li><strong>Titan Blade ALPHA 1.6:</strong> First compilation of the game.</li>
+                            <li><strong>Slei ALPHA 1.7:</strong>
+                                <ul>
+                                    <li>Game icon added.</li>
+                                    <li>Name, 'Titan Blade' changed to 'Slei'</li>
+                                    <li>Easy mode shows potions.</li>
+                                    <li>Classes and difficulty affect player health.</li>
+                                    <li>Many bug fixes.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Slei ALPHA 1.8:</strong>
+                                <ul>
+                                    <li>Color theme changed.</li>
+                                    <li>Insane mode enabled.</li>
+                                    <li>Difficulties change enemy damage buffs.</li>
+                                    <li>Changed styling completely for media devices (Removed title).</li>
+                                    <li>Player can hold <i>Sharpen Sword</i> until they attack.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>             
+                    </div>                          
+                </div>                
+            </div>
+        </div>
+        
+        <!-- Resources -->
+        <script src="js/script.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>        
+    </body>
+</html>

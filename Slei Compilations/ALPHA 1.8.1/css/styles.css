@@ -1,0 +1,88 @@
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.jumbotitle{
+    background-color: #563d7c;
+    color: aliceblue;
+}
+
+.jumbotron{
+    margin-left: 300px;
+    margin-right: 300px;
+    margin-top: 20px;
+}
+
+#o-select{
+    list-style: none;
+    text-align: center;
+}
+#o-select li{
+    margin-top: 10px; 
+}
+
+.part h2{
+    text-align: left;
+}
+
+.health-display{
+    color: #3d3;
+}
+
+.navbar{
+    margin: 0px;
+    margin-top: -50px;
+    float: top;
+    border-radius: 0px;
+}
+
+.alert{
+    font-size: 20px;
+}
+
+.collapse{
+    text-align: left;
+    font-size: 15px;
+    background-color: #337ab7
+}
+
+/*Dropdown*/
+.dropDownMenu{
+    display: inline;
+    font-size: 2opx;
+    list-style: none;
+    text-align: left;
+    word-wrap: break-word;
+    height: 100%;
+}
+.buttonDropDown:hover .dropDownMenu{
+    display: inline;
+}
+
+/*Table*/
+table, th, td{
+    width: 100%;
+    text-align: center;
+    word-wrap: break-word;
+}
+th{
+    padding-left: 0px;
+    list-style-position: inside;
+}
+#classRow th{
+    float: left;
+}
+
+/*Media*/
+.jumbotitle{
+    display: none;
+}
+.game{
+    width: 100%;
+    margin: 0px;
+}
+
+
+
+
+
