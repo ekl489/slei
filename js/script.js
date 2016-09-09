@@ -503,7 +503,7 @@ jQuery(document).ready(function(){
     jQuery('#d1').on('click', function(event) {
         p1 = 1;
         jQuery('#part1').children().hide(500);
-        jQuery('#part2Easy').show(500);
+        jQuery('#part2').show(500);
     });
     jQuery('#d2').on('click', function(event) {
         p1 = 2;
@@ -521,7 +521,7 @@ jQuery(document).ready(function(){
         jQuery('#part2').show(500);
     });
 
-    //Class Selection
+    //Class Selection 1
     jQuery('#c1').on('click', function(event) {
         p2 = 1;
         jQuery('#part2').hide(500);
@@ -635,6 +635,127 @@ jQuery(document).ready(function(){
         startGame();
     });
     jQuery('#c17').on('click', function(event) {
+        p2 = 17;
+        jQuery('#part2').hide(500);
+        jQuery('#part3').show(500);
+        jQuery('#part2Easy').hide(500);
+        startGame();
+    });
+
+    //Class Selection 2
+    jQuery('#c1b').on('click', function(event) {
+        p2 = 1;
+        jQuery('#part2').hide(500);
+        jQuery('#part2Easy').hide(500);
+        jQuery('#part3').show(500);
+        startGame();
+    });
+    jQuery('#c2b').on('click', function(event) {
+        p2 = 2;
+        jQuery('#part2').hide(500);
+        jQuery('#part3').show(500);
+        jQuery('#part2Easy').hide(500);
+        startGame();
+    });
+    jQuery('#c3b').on('click', function(event) {
+        p2 = 3;
+        jQuery('#part2').hide(500);
+        jQuery('#part3').show(500);
+        jQuery('#part2Easy').hide(500);
+        startGame();
+    });
+    jQuery('#c4b').on('click', function(event) {
+        p2 = 4;
+        jQuery('#part2').hide(500);
+        jQuery('#part3').show(500);
+        jQuery('#part2Easy').hide(500);
+        startGame();
+    });
+    jQuery('#c5b').on('click', function(event) {
+        p2 = 5;
+        jQuery('#part2').hide(500);
+        jQuery('#part3').show(500);
+        jQuery('#part2Easy').hide(500);
+        startGame();
+    });
+    jQuery('#c6b').on('click', function(event) {
+        p2 = 6;
+        jQuery('#part2').hide(500);
+        jQuery('#part3').show(500);
+        jQuery('#part2Easy').hide(500);
+        startGame();
+    });
+    jQuery('#c7b').on('click', function(event) {
+        p2 = 7;
+        jQuery('#part2').hide(500);
+        jQuery('#part3').show(500);
+        jQuery('#part2Easy').hide(500);
+        startGame();
+    });
+    jQuery('#c8b').on('click', function(event) {
+        p2 = 8;
+        jQuery('#part2').hide(500);
+        jQuery('#part3').show(500);
+        jQuery('#part2Easy').hide(500);
+        startGame();
+    });
+    jQuery('#c9b').on('click', function(event) {
+        p2 = 9;
+        jQuery('#part2').hide(500);
+        jQuery('#part3').show(500);
+        jQuery('#part2Easy').hide(500);
+        startGame();
+    });
+    jQuery('#c10b').on('click', function(event) {
+        p2 = 10;
+        jQuery('#part2').hide(500);
+        jQuery('#part3').show(500);
+        jQuery('#part2Easy').hide(500);
+        startGame();
+    });
+    jQuery('#c11b').on('click', function(event) {
+        p2 = 11;
+        jQuery('#part2').hide(500);
+        jQuery('#part3').show(500);
+        jQuery('#part2Easy').hide(500);
+        startGame();
+    });
+    jQuery('#c12b').on('click', function(event) {
+        p2 = 12;
+        jQuery('#part2').hide(500);
+        jQuery('#part3').show(500);
+        jQuery('#part2Easy').hide(500);
+        startGame();
+    });
+    jQuery('#c13b').on('click', function(event) {
+        p2 = 13;
+        jQuery('#part2').hide(500);
+        jQuery('#part3').show(500);
+        jQuery('#part2Easy').hide(500);
+        startGame();
+    });
+    jQuery('#c14b').on('click', function(event) {
+        p2 = 14;
+        jQuery('#part2').hide(500);
+        jQuery('#part3').show(500);
+        jQuery('#part2Easy').hide(500);
+        startGame();
+    });
+    jQuery('#c15b').on('click', function(event) {
+        p2 = 15;
+        jQuery('#part2').hide(500);
+        jQuery('#part3').show(500);
+        jQuery('#part2Easy').hide(500);
+        startGame();
+    });
+    jQuery('#c16b').on('click', function(event) {
+        p2 = 16;
+        jQuery('#part2').hide(500);
+        jQuery('#part3').show(500);
+        jQuery('#part2Easy').hide(500);
+        startGame();
+    });
+    jQuery('#c17b').on('click', function(event) {
         p2 = 17;
         jQuery('#part2').hide(500);
         jQuery('#part3').show(500);
