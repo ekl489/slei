@@ -43,6 +43,5 @@ A turn based battle game.
 4. Slei ALPHA 2.0:
   - Classes completely implemented.
   - Difficulties completely implemented.
-  - Whoever has more health will be damaged slightely more.
   - End of round alerts color coordinated.
   - Game data added to end of game.
