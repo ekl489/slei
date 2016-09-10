@@ -3,7 +3,7 @@ var p1, p2;
 var Difficulty, Class;
 var playerHealth = 'Loading...', enemyHealth = 'Loading...', oldPlayerHealth = 'Loading...', oldEnemyHealth = 'Loading...';
 var playerDamage = 0, enemyDamage = 0;
-var parry = 0, sharpensword = 0, enemybuff = 0, potions = 0, elfDodge = false;
+var parry = 0, sharpensword = 0, enemybuff = 0, potions = 0;
 var playerLunged = false, playerUsedPotion = false, displayScreen = false, RLDEBuff = false, RLDEBUFFValue = 0;
 var firstRound = true;
 var attackSelection, lastAttack;
@@ -249,10 +249,16 @@ function Attack(){
             playerDamage = 0;
             //drink potion
             if(potions > 0){
+                if(Class == "Rogue"){
+                    feedback.push(AlertSuccess("You drank a potion and healed <strong>35 health</strong>."));
+                    playerHealth += 35;
+                }
+                else{
+                    feedback.push(AlertSuccess("You drank a potion and healed <strong>30 health</strong>."));
+                    playerHealth += 30;
+                }
                 potions--;
-                feedback.push(AlertSuccess("You drank a potion and healed <strong>30 health</strong>."));
                 playerUsedPotion = true;
-                playerHealth += 30;
             }
             else{
                 feedback.push(AlertDanger("You search your pocket for a potion but you don't find one. Your stupidity has let you down."));
@@ -353,7 +359,11 @@ function Attack(){
     }
 
     //Find a potion?
-    if(Math.floor((Math.random() * 6) + 0) == 0){
+    if(Class == "Rogue" && Math.floor((Math.random() * 4.5)) == 0){
+        feedback.push(AlertSuccess("You have found a potion!"));
+        potions++;
+    }
+    else if(Math.floor((Math.random() * 6)) == 0){
         feedback.push(AlertSuccess("You have found a potion!"));
         potions++;
     }
@@ -418,12 +428,6 @@ function Class_Pre_All(){
             }
             break;
         case "Elf":
-            if(Math.floor((Math.random() * 6)) == 0){
-                elfDodge = true;
-            }
-            else{
-                elfDodge = false;
-            }
             break;
         case "Witch":
             break;
@@ -452,6 +456,7 @@ function Class_Pre_Damage(){
         case "Paladin":
             break;
         case "Goblin":
+            playerDamage = playerDamage + 8;
             break;
         case "Thief":
             break;
@@ -462,6 +467,10 @@ function Class_Pre_Damage(){
         case "Orc":
             break;
         case "Elf":
+            if(Math.floor((Math.random() * 6)) == 0){
+                feedback.push(AlertSuccess("Your Elvish speed allowed you to dodge the nemy attack."));
+                enemyDamage = 0;
+            }
             break;
         case "Witch":
             break;
@@ -473,6 +482,9 @@ function Class_Pre_Damage(){
         case "Giant":
             break;
         case "Ogre":
+            var bleed = Math.floor(Math.random() * 250) + 50;
+            feedback.push(AlertDanger("You bleed " + bleed + " health."));
+            playerHealth -= bleed;
             break;
         case "Vampire":
             break;
@@ -491,13 +503,17 @@ function UpdateData(){
             document.getElementById("player-health2").innerHTML = oldPlayerHealth + "<span class='text-danger'> - " + enemyDamage + "</span><span class='text-warning'> + " + playerDamage + "</span> = " + playerHealth;
         } //Lunge
         else if(playerUsedPotion){
-            document.getElementById("player-health2").innerHTML = oldPlayerHealth + "<span class='text-danger'> - " + enemyDamage + "</span><span class='text-warning'> + 30</span> = " + playerHealth;
+            if(Class == "Rogue"){
+                document.getElementById("player-health2").innerHTML = oldPlayerHealth + "<span class='text-danger'> - " + enemyDamage + "</span><span class='text-warning'> + 35</span> = " + playerHealth;
+            }
+            else{
+                document.getElementById("player-health2").innerHTML = oldPlayerHealth + "<span class='text-danger'> - " + enemyDamage + "</span><span class='text-warning'> + 30</span> = " + playerHealth;
+            }
         } //Potion
         else{
             document.getElementById("player-health2").innerHTML = oldPlayerHealth + "<span class='text-danger'> - " + enemyDamage + "</span> = " + playerHealth;
         }
         document.getElementById("enemy-health2").innerHTML = oldEnemyHealth + "<span class='text-danger'> - " + playerDamage + "</span> = " + enemyHealth;
-
     }
     document.getElementById("player-health").innerHTML = playerHealth;
     document.getElementById("enemy-health").innerHTML = enemyHealth;

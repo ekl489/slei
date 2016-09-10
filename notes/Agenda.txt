@@ -1,7 +1,7 @@
 !-- Agenda --!
 
 -- Long Term
--Sound effects
+-Sound effects(tick sound effect on mouseover button)
 -Animations
 -Make difficulty information more vague(e.g +15 damage becomes additional damage)
 
@@ -13,3 +13,4 @@
 -Don't hide events on win/loss
 -Clean up RLDBuff, enemybuff, other buffs, lunge heal, etc
 -Whoever has more health is damaged more
+-Add class event text when needed (Goblin)
