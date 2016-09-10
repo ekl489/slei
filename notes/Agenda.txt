@@ -3,5 +3,13 @@
 -- Long Term
 -Sound effects
 -Animations
+-Make difficulty information more vague(e.g +15 damage becomes additional damage)
 
 --Short Term
+-Fully implement limited range of classes
+-Add classes visibility settings to both tabs
+-Add extra_attack classes
+-Add class_based_event color to alerts
+-Don't hide events on win/loss
+-Clean up RLDBuff, enemybuff, other buffs, lunge heal, etc
+-Whoever has more health is damaged more

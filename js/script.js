@@ -3,7 +3,7 @@ var p1, p2;
 var Difficulty, Class;
 var playerHealth = 'Loading...', enemyHealth = 'Loading...', oldPlayerHealth = 'Loading...', oldEnemyHealth = 'Loading...';
 var playerDamage = 0, enemyDamage = 0;
-var parry = 0, sharpensword = 0, enemybuff = 0, potions = 0;
+var parry = 0, sharpensword = 0, enemybuff = 0, potions = 0, elfDodge = false;
 var playerLunged = false, playerUsedPotion = false, displayScreen = false, RLDEBuff = false, RLDEBUFFValue = 0;
 var firstRound = true;
 var attackSelection, lastAttack;
@@ -113,7 +113,7 @@ function startGame(){
             Class = "Witch";
             break;
         case 10: //Troll
-            playerHealth = 500;
+            playerHealth = 350;
             //damage 4/5ths
             Class = "Troll";
             break;
@@ -207,12 +207,8 @@ function Attack(){
     //Check for Win/Loss
     CheckForWinOrLoss();
 
-    //Knight Heal
-    if(Class == "Knight"){
-        var knightheal = Math.floor((Math.random() * 2) + 3);
-        feedback.push(AlertSuccess("Your knightly strength healed you by " + knightheal + "!"));
-        playerHealth += knightheal;
-    }
+    //Classes
+    Class_Pre_All();
 
     //Select Attack
     //Calculate & Display Damage + Attack
@@ -362,6 +358,9 @@ function Attack(){
         potions++;
     }
 
+    //Class_Pre_Damage()
+    Class_Pre_Damage();
+
     //Deal Damage
     if(playerDamage > 0){
         enemyHealth -= playerDamage;
@@ -385,7 +384,17 @@ function Attack(){
         feedback.push(AlertSuccess("Your lunge healed you by <strong>" + playerDamage + "</strong> health."));
     }
 
-    //Classes
+    //Next Round
+    lastAttack = attackSelection;
+    CheckForWinOrLoss();
+    firstRound = false;
+    displayScreen = true;
+    UpdateData();
+    ShowAlerts();
+}
+
+//Class Events
+function Class_Pre_All(){
     switch(Class){
         case "Rogue":
             break;
@@ -398,6 +407,9 @@ function Attack(){
         case "Alchemist":
             break;
         case "Knight":
+            var knightHeal = Math.floor((Math.random() * 2) + 3);
+            feedback.push(AlertSuccess("Your knightly strength healed you by " + knightHeal + "!"));
+            playerHealth += knightHeal;
             break;
         case "Orc":
             if(Math.floor(Math.random() * 2) == 0){
@@ -406,6 +418,12 @@ function Attack(){
             }
             break;
         case "Elf":
+            if(Math.floor((Math.random() * 6)) == 0){
+                elfDodge = true;
+            }
+            else{
+                elfDodge = false;
+            }
             break;
         case "Witch":
             break;
@@ -426,14 +444,45 @@ function Attack(){
         case "Reaper":
             break;
     }
-
-    //Next Round
-    lastAttack = attackSelection;
-    CheckForWinOrLoss();
-    firstRound = false;
-    displayScreen = true;
-    UpdateData();
-    ShowAlerts();
+}
+function Class_Pre_Damage(){
+    switch(Class){
+        case "Rogue":
+            break;
+        case "Paladin":
+            break;
+        case "Goblin":
+            break;
+        case "Thief":
+            break;
+        case "Alchemist":
+            break;
+        case "Knight":
+            break;
+        case "Orc":
+            break;
+        case "Elf":
+            break;
+        case "Witch":
+            break;
+        case "Troll":
+            playerDamage = Math.floor(playerDamage * 0.6);
+            break;
+        case "Samurai":
+            break;
+        case "Giant":
+            break;
+        case "Ogre":
+            break;
+        case "Vampire":
+            break;
+        case "Dragon":
+            break;
+        case "Dwarf":
+            break;
+        case "Reaper":
+            break;
+    }
 }
 
 function UpdateData(){
