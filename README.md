@@ -45,3 +45,8 @@ A turn based battle game.
   - Difficulties completely implemented.
   - End of round alerts color coordinated.
   - Game data added to end of game.
+5. Slei ALPHA 2.1:
+  - Class selection UI tweaked
+  - Whoever has less health does more damage
+  - Sharpen Sword then Lunge combo is less effective.
+

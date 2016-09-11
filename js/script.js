@@ -337,6 +337,14 @@ function Attack(){
         RLDEBuff = false;
         enemyDamage += RLDEBUFFValue;
     }
+    
+    //More Damage for Losing Player
+    if(enemyHealth > playerHealth && playerDamage > 10){
+        playerDamage += 5;
+    }
+    else if(enemyHealth < playerHealth){
+        enemyDamage += 5;
+    }
 
     //Damage Buff?
     if(sharpensword == 1 && (attackSelection == 1 ||attackSelection == 2 || attackSelection == 3 ||attackSelection == 4)){
