@@ -25,3 +25,6 @@
 -reaper - buffs can stack + soul tear: makes enemy bleed and takes no damage - 70 health
 -Dragon - special playset: breath fire, bite, claw, no potions, dodge and gust (rare), rage (rare) add 15 damage, 550 hp enemy, enemy + 600 hp
 -dwarf - takes double damage, starts at 30 health, but can sometimes use shield up to gain 120-220 health
+
+--Notes
+-Rogue becomes redundant on Easy mode

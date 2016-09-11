@@ -4,7 +4,7 @@ var Difficulty, Class;
 var playerHealth = 'Loading...', enemyHealth = 'Loading...', oldPlayerHealth = 'Loading...', oldEnemyHealth = 'Loading...';
 var playerDamage = 0, enemyDamage = 0;
 var parry = 0, sharpensword = 0, enemybuff = 0, potions = 0;
-var playerLunged = false, playerUsedPotion = false, displayScreen = false, RLDEBuff = false, RLDEBUFFValue = 0;
+var playerLunged = false, playerUsedPotion = false, displayScreen = false, RLDEBuff = false, RLDEBUFFValue = 0, SharpenSword_Then_Lunge_Combo = 0, enemyBlockBuff = false;
 var firstRound = true;
 var attackSelection, lastAttack;
 var feedback = [];
@@ -30,6 +30,7 @@ function resetGame(){
     attackSelection = 0;
     lastAttack = 0;
     feedback = [];
+    SharpenSword_Then_Lunge_Combo = 0
 
     jQuery('#part3').hide(500);
     jQuery('#part4').hide(500);
@@ -303,9 +304,17 @@ function Attack(){
         default:
             break;
     } //Attack Selection
+    
+    //Sharpen Sword Then Lunge Combo
+    if(attackSelection == 4 && lastAttack == 6){
+        SharpenSword_Then_Lunge_Combo += 1;
+        if(playerDamage > Math.floor(SharpenSword_Then_Lunge_Combo * 2.5) && SharpenSword_Then_Lunge_Combo > 2){
+            enemyBlockBuff = true;
+        }
+    }
 
     //Calculate Enemy Damage
-    enemyDamage = Math.floor((Math.random() * 25) + 5);
+    enemyDamage = Math.floor((Math.random() * 20) + 2);
     if(Difficulty == "Medium"){
         enemyDamage += 5;
     }
@@ -353,13 +362,17 @@ function Attack(){
     }
 
     //Enemy Parry + Damage
-    if(Math.floor((Math.random() * 7) + 0) == 0){
+    if(enemyBlockBuff == true && Math.floor(Math.random() * 4.5) == 0){
+        feedback.push(AlertDanger("<strong>But!</strong> The enemy blocked your attack!"));
+        playerDamage = 0;
+    }
+    else if(Math.floor((Math.random() * 7) + 0) == 0){
         feedback.push(AlertDanger("<strong>But!</strong> The enemy blocked your attack!"));
         playerDamage = 0;
     }
 
     //Find a potion?
-    if(Class == "Rogue" && Math.floor((Math.random() * 4.5)) == 0){
+    if(Class == "Rogue" || Difficulty == "Easy" && Math.floor((Math.random() * 4.5)) == 0){
         feedback.push(AlertSuccess("You have found a potion!"));
         potions++;
     }
@@ -389,12 +402,13 @@ function Attack(){
     parry--;
 
     //Special heal - lunge
-    if(attackSelection == 4){
+    if(attackSelection == 4 && playerDamage > 0){
         playerHealth += playerDamage;
         feedback.push(AlertSuccess("Your lunge healed you by <strong>" + playerDamage + "</strong> health."));
     }
-
+    
     //Next Round
+    enemyBlockBuff = false;
     lastAttack = attackSelection;
     CheckForWinOrLoss();
     firstRound = false;
@@ -497,6 +511,7 @@ function Class_Pre_Damage(){
     }
 }
 
+//Process Functions
 function UpdateData(){
     if(displayScreen){ //Display Screen
         if(playerLunged){
@@ -513,7 +528,12 @@ function UpdateData(){
         else{
             document.getElementById("player-health2").innerHTML = oldPlayerHealth + "<span class='text-danger'> - " + enemyDamage + "</span> = " + playerHealth;
         }
-        document.getElementById("enemy-health2").innerHTML = oldEnemyHealth + "<span class='text-danger'> - " + playerDamage + "</span> = " + enemyHealth;
+        if(playerDamage > 0){
+            document.getElementById("enemy-health2").innerHTML = oldEnemyHealth + "<span class='text-danger'> - " + playerDamage + "</span> = " + enemyHealth;
+        }
+        else{
+            document.getElementById("enemy-health2").innerHTML = oldEnemyHealth + " <span class='text-danger'>- 0</span> = " + enemyHealth;
+        }
     }
     document.getElementById("player-health").innerHTML = playerHealth;
     document.getElementById("enemy-health").innerHTML = enemyHealth;
