@@ -348,7 +348,7 @@ function Attack(){
 
     }
     else if(lastAttack == 6 && attackSelection == 6){
-        feedback.push(AlertInfo("You try to sharpen your sword but there is no effect!"));
+        feedback.push(AlertWarning("You try to sharpen your sword but there is no effect!"));
         sharpensword--;
     }
     else if(sharpensword == 2){
@@ -432,12 +432,12 @@ function Class_Pre_All(){
             break;
         case "Knight":
             var knightHeal = Math.floor((Math.random() * 2) + 3);
-            feedback.push(AlertSuccess("Your knightly strength healed you by " + knightHeal + "!"));
+            feedback.push(AlertInfo("Your knightly strength healed you by " + knightHeal + "!"));
             playerHealth += knightHeal;
             break;
         case "Orc":
             if(Math.floor(Math.random() * 2) == 0){
-                feedback.push(AlertSuccess("Your Orc strength gave you an extra <strong>15</strong> damage!"));
+                feedback.push(AlertInfo("Your Orc strength gave you an extra <strong>15</strong> damage!"));
                 enemyHealth -= 15;
             }
             break;
@@ -482,7 +482,7 @@ function Class_Pre_Damage(){
             break;
         case "Elf":
             if(Math.floor((Math.random() * 6)) == 0){
-                feedback.push(AlertSuccess("Your Elvish speed allowed you to dodge the nemy attack."));
+                feedback.push(AlertInfo("Your Elvish speed allowed you to dodge the nemy attack."));
                 enemyDamage = 0;
             }
             break;
