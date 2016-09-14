@@ -2,17 +2,15 @@ body{
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-.jumbotitle{
-    background-color: #563d7c;
-    color: aliceblue;
-}
-
 .jumbotron{
     margin-left: 300px;
     margin-right: 300px;
     margin-top: 20px;
 }
-
+.game{
+    width: 100%;
+    margin: 0px;
+}
 #o-select{
     list-style: none;
     text-align: center;
@@ -92,20 +90,6 @@ th{
 #potionList1, #potionList2{
     text-align: left;
 }
-
-/*Media*/
-.jumbotitle{
-    display: none;
-}
-.game{
-    width: 100%;
-    margin: 0px;
-}
-@media .btn{
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
 
 
 

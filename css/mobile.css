@@ -1,0 +1,19 @@
+
+/*Media*/
+@media .btn{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+@media .game{
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+}
+
+@media only screen and (max-device-width: 480px){
+    #o-select{
+        margin: 0px;
+    }
+}
+
