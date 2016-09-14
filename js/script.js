@@ -304,7 +304,7 @@ function Attack(){
         default:
             break;
     } //Attack Selection
-    
+
     //Sharpen Sword Then Lunge Combo
     if(attackSelection == 4 && lastAttack == 6){
         SharpenSword_Then_Lunge_Combo += 1;
@@ -337,7 +337,7 @@ function Attack(){
         RLDEBuff = false;
         enemyDamage += RLDEBUFFValue;
     }
-    
+
     //More Damage for Losing Player
     if(enemyHealth > playerHealth && playerDamage > 10){
         playerDamage += Math.floor(Math.random() * 10) + 5);
@@ -384,8 +384,8 @@ function Attack(){
     //Find a potion?
     if(Class == "Rogue" || Difficulty == "Easy"){
         if(Math.floor((Math.random() * 4.5)) == 0){
-        feedback.push(AlertSuccess("You don't deserve to live you piece of shit!"));
-        potions++;
+            feedback.push(AlertSuccess("You have found a potion!"));
+            potions++;
         }
     }
     else if(Math.floor((Math.random() * 6)) == 0){
@@ -418,7 +418,7 @@ function Attack(){
         playerHealth += playerDamage;
         feedback.push(AlertSuccess("Your lunge healed you by <strong>" + playerDamage + "</strong> health."));
     }
-    
+
     //Next Round
     enemyBlockBuff = false;
     lastAttack = attackSelection;
