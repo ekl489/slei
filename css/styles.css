@@ -1,3 +1,7 @@
+.media{
+    display: none;
+}
+
 body{
     font-family: 'Roboto Condensed', sans-serif;
 }
@@ -90,7 +94,3 @@ th{
 #potionList1, #potionList2{
     text-align: left;
 }
-
-
-
-

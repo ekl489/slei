@@ -340,7 +340,7 @@ function Attack(){
 
     //More Damage for Losing Player
     if(enemyHealth > playerHealth && playerDamage > 10){
-        playerDamage += Math.floor(Math.random() * 10) + 5);
+        playerDamage += Math.floor(Math.random() * 10) + 5;
         console.log("enemy has more health");
     }
     else if(enemyHealth < playerHealth){
