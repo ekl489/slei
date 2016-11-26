@@ -1,5 +1,4 @@
 <?php
-
 ob_start();
 session_start();
 error_reporting(0);
@@ -80,7 +79,7 @@ if ( isset($_POST['post']) ) {
         <link href="css/styles.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+        <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" type="text/css">
     </head>
     <body>
         <!-- Navigation -->
@@ -125,28 +124,122 @@ if ( isset($_POST['post']) ) {
         </nav><br><br>
 
         <!-- Main Content -->
-        <div class="container">
-            <div class="progress">
-                <div class="progress-bar progress-bar-success" style="width: 35%">
-                    <span class="sr-only">35% Complete (success)</span>
-                </div>
-            <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: 20%">
-                    <span class="sr-only">20% Complete (warning)</span>
-            </div>
-            <div class="progress-bar progress-bar-danger" style="width: 10%">
-                    <span class="sr-only">10% Complete (danger)</span>
-            </div>
-</div>
-
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="row">
-                        <div class="col-3">
-
+        <div class="container-fluid main-content">
+            <div class="row main-content-row">
+                <div class="statistics-menu col-md-10">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Stats</div>
+                        <div class="panel-body">
+                           <div class="row">
+                            <div class="progress col-md-12">
+                        <div class="progress-bar progress-bar-success" style="width: 80%">
+                            <span>80% Win</span>
+                        </div>
+                        <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: 0%">
+                            <span>sgdsgsdgsdg</span>
+                        </div>
+                        <div class="progress-bar progress-bar-danger" style="width: 20%">
+                            <span>20% Loss</span>
+                        </div>
+                    </div>
+                            <div class="col-lg-4 col-md-12">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <span class="glyphicon glyphicon-flag glyphicon-big"></span>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge"><h3>26</h3></div>
+                                        <div>Wins</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    </div>
+                            <div class="col-lg-4 col-md-12">
+                                <div class="panel panel-danger">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <span class="glyphicon glyphicon-remove glyphicon-big"></span>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div class="huge"><h3>4</h3></div>
+                                                <div>Losses</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <span class="glyphicon glyphicon-play-circle glyphicon-big"></span>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div class="huge"><h3>30</h3></div>
+                                                <div>Games</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
-
+                <div class="col-md-2">
+                    <div class="community-menu panel panel-primary">
+                        <div class="panel-heading">Community</div>
+                        <div class="panel-body">
+                            <ul class="community-menu-list">
+                                <li>
+                                    <button class="btn btn-warning" type="button">
+                                        DJMuffins <span class="badge">4</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-warning" type="button">
+                                        G.E.W.P Lotso <span class="badge">4</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-warning" type="button">
+                                        333ramPage333 <span class="badge">4</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-warning" type="button">
+                                        clevercat <span class="badge">4</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-warning" type="button">
+                                        CheeckyCookies <span class="badge">4</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-warning" type="button">
+                                        CheeckyCookies <span class="badge">4</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-warning" type="button">
+                                        panda101 <span class="badge">4</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-warning" type="button">
+                                        yurmum53254 <span class="badge">4</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -155,7 +248,7 @@ if ( isset($_POST['post']) ) {
         <!-- Footer -->
         <footer>
             <div class="container">
-                <p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
+                <p class="copyright text-muted">Copyright &copy; Slei Online 2016</p>
             </div>
         </footer>
 

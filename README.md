@@ -50,3 +50,6 @@ A turn based battle game.
   - Whoever has less health does more damage
   - Sharpen Sword then Lunge combo is less effective.
 
+###The Future###
+*Slei Online*
+I am currently in the process of Slei Online which will allow users to create their own Slei user accounts and track their wins and losses online. Users will be able to verse each other creating a more competitive environment.
