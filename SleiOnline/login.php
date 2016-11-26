@@ -7,7 +7,7 @@ if( isset($_SESSION['user'])!="" ){
 }
 $error = false;
 
-if( isset($_POST['btn-login']) ) { 
+if( isset($_POST['btn-login']) ) {
 
     // prevent sql injections/ clear user invalid inputs
     $email = trim($_POST['email']);
@@ -42,7 +42,7 @@ if( isset($_POST['btn-login']) ) {
         $count = mysql_num_rows($res); // if uname/pass correct it returns must be 1 row
 
         if( $count == 1 && $row['userPass']==$password ) {
-            $_SESSION['user'] = $row['userId'];   
+            $_SESSION['user'] = $row['userId'];
             header("Location: index.php");
         } else {
             $errMSG = "Incorrect Credentials, Try again...";
@@ -133,8 +133,8 @@ if( isset($_POST['btn-login']) ) {
                         </div>
                     </div>
                 </form>
-            </div> 
+            </div>
         </div>
- 
+
     </body>
 </html>

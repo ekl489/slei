@@ -1,0 +1,73 @@
+.media{
+    display: inline;
+}
+
+.jumbotron h1{
+    margin-left: 100px;
+}
+
+/*Media*/
+nav{
+    display: none;
+}
+
+.game{
+    margin: 0px;
+    padding: 0px;
+    height: 150%;
+}
+.container{
+    margin: 0px;
+    margin-right: 5px;
+    margin-left: 5px;
+    padding: 0px;
+    padding-right: 5px;
+    padding-left: 5px;
+    height: 100%;
+}
+
+/* o-Select */
+#o-select{
+    margin: 0px;
+}
+
+#o-select li{
+    font-size: 40px;
+}
+
+#o-select li button{
+    font-size: 40px;
+}
+
+li h2{
+    font-size: 45px;
+    margin-left: 10px;
+}
+
+/* Buttons */
+.btn{
+    width: 900px;
+}
+
+.btn-block{
+
+}
+
+.tab-content{
+    width: 90%;
+    margin: 0 auto;
+}
+.tab-content row{
+    font-size: 45px;
+}
+.tab-content .class-button{
+    font-size: 38px;
+}
+.alert{
+    font-size: 45px;
+    width: 900px;
+}
+
+.part{
+    width: 900px;
+}

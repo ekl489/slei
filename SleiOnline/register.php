@@ -75,8 +75,8 @@ if ( isset($_POST['btn-signup']) ) {
             unset($pass);
         } else {
             $errTyp = "danger";
-            $errMSG = "Something went wrong, try again later..."; 
-        } 
+            $errMSG = "Something went wrong, try again later...";
+        }
 
     }
 
@@ -88,7 +88,7 @@ if ( isset($_POST['btn-signup']) ) {
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title><?php echo $title;?> Register</title>
-        
+
         <!-- Latest compiled and minified Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -170,7 +170,7 @@ if ( isset($_POST['btn-signup']) ) {
                     </div>
 
                 </form>
-            </div> 
+            </div>
 
         </div>
 
