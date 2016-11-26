@@ -48,8 +48,8 @@ A turn based battle game.
 5. Slei ALPHA 2.1:
   - Class selection UI tweaked
   - Whoever has less health does more damage
-  - Sharpen Sword then Lunge combo is less effective.
+  - Sharpen Sword then Lunge combo is less effective over time forcing players to use other strategies to win.
 
 ###The Future###
-*Slei Online*
+*Slei Online:*
 - I am currently in the process of Slei Online which will allow users to create their own Slei user accounts and track their wins and losses online. Users will be able to verse each other creating a more competitive environment.

@@ -13,3 +13,10 @@
 -Don't hide events on win/loss
 -Clean up RLDBuff, enemybuff, other buffs, lunge heal, etc
 -Add class event text when needed (Goblin)
+
+!-- Bugs --!
+
+!-- Class Balancing --!
+-Buff Troll
+-Nerf Goblin - Lower Health?
+-Buff Rogue - More Potions? - Lower Potion Heal?
