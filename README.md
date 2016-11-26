@@ -3,7 +3,7 @@
 
 ###Description###
 
-A turn based battle game.
+A fantasy themed strategic turn based battle game with a wide range of classes and difficulties to allow more enjoyment.
 
 ###Slei Help###
 
