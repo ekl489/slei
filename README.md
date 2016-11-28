@@ -74,7 +74,8 @@ A fantasy themed strategic turn based battle game with a wide range of classes a
     - Dragon - special playset: breath fire, bite, claw, no potions, dodge and gust (rare), rage (rare) add 15 damage, 550 hp enemy, enemy + 600 hp
     - Dwarf - takes double damage, starts at 30 health, but can sometimes use shield up to gain 120-220 health
 
- ###Slei Difficulties###
+###Slei Difficulties###
+
 - Easy
     - +20 Health
     - Receives more potion drops
