@@ -59,7 +59,7 @@ A fantasy themed strategic turn based battle game with a wide range of classes a
     - Thief - 50 health - sometimes can use steal: don't take damage, enemy loses half their health
     - Alchemist - 30 hp, poison knife, finds more potions
 
- - Tank
+  - Tank
     - Samurai - 600 health, takes triple damage, parry will block in two moves
     - Giant - player: 500 hp, enemy: 600hp, misses alot but does 4 x damage, enemy does 3 x damage
     - Vampire - 1000 hp, uses double own health to attack, enemy + 100 hp, bleeds 5 - 10 hp each round
