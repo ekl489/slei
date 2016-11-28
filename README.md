@@ -50,6 +50,52 @@ A fantasy themed strategic turn based battle game with a wide range of classes a
   - Whoever has less health does more damage
   - Sharpen Sword then Lunge combo is less effective over time forcing players to use other strategies to win.
 
+###Slei Classes###
+
+  - Light weight
+    - Goblin - extra 8 damage - 70 health
+    - Rogue - potions +5 hp, more potion drops, 100 hp
+    - Paladin - no potions but can heal 10-20 (or small chance or 0) anytime, 100 hp
+    - Thief - 50 health - sometimes can use steal: don't take damage, enemy loses half their health
+    - Alchemist - 30 hp, poison knife, finds more potions
+
+ - Tank
+    - Samurai - 600 health, takes triple damage, parry will block in two moves
+    - Giant - player: 500 hp, enemy: 600hp, misses alot but does 4 x damage, enemy does 3 x damage
+    - Vampire - 1000 hp, uses double own health to attack, enemy + 100 hp, bleeds 5 - 10 hp each round
+    - Ogre - 1000 hp, bleeds 20-50 hp every round
+    - Troll - damage 4/5? 500 health
+
+ - Midrange
+    - Knight - heals + 3-4 each turn - 120 hp
+    - Witch - curse - 140 hp
+    - Orc - random extra 15 damage, 120 hp
+    - Elf - randomly dodge enemy attack 120 hp
+
+ - Special
+    - Reaper - buffs can stack + soul tear: makes enemy bleed and takes no damage - 70 health
+    - Dragon - special playset: breath fire, bite, claw, no potions, dodge and gust (rare), rage (rare) add 15 damage, 550 hp enemy, enemy + 600 hp
+    - Dwarf - takes double damage, starts at 30 health, but can sometimes use shield up to gain 120-220 health
+
+ ###Slei Difficulties###
+
+ - Easy
+    - +20 Health
+    - Receives more potion drops
+    - Potions are displayed
+ - Medium
+    - Potions are not displayed
+    - Enemy has +5 damage
+ - Hard
+    - Potions are not displayed
+    - Enemy has +15 damage
+ - Insane
+    - Potions are not displayed
+    - Enemy has +15 - 25 damage
+    - Enemy has +40 health
+    - Non special classes do less damage
+    - Cannot roll the dice
+
 ###The Future###
-*Slei Online:*
-- I am currently in the process of Slei Online which will allow users to create their own Slei user accounts and track their wins and losses online. Users will be able to verse each other creating a more competitive environment.
+
+  - I am currently in the process of *Slei Online* which will allow users to create their own Slei user accounts and track their wins and losses online. Users will be able to verse each other creating a more competitive environment.

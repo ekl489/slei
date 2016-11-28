@@ -208,216 +208,12 @@ function Attack(){
     //Check for Win/Loss
     CheckForWinOrLoss();
 
+    ClassBasedAttack();
+
     //Classes
     Class_Pre_All();
 
-    //Select Attack
-    //Calculate & Display Damage + Attack
-    switch(attackSelection){
-        case 1:
-            playerDamage = Math.floor((Math.random() * 25) + 5);
-            break;
-        case 2:
-            if(Math.floor(Math.random() * 6) == 0){
-                playerDamage = 30;
-                feedback.push(AlertSuccess("You hit a critical!"));
-            }
-            else{
-                playerDamage = 5;
-            }
-            break;
-        case 3:
-            playerDamage = 25;
-            //+15 damage buff to enemy;
-            enemybuff = 2;
-            break;
-        case 4:
-            playerDamage = Math.floor((Math.random() * 15) + 5);
-            playerLunged = true;
-            //heal damage done
-            break;
-        case 5:
-            playerDamage = 0;
-            //parry
-            parry = 2;
-            break;
-        case 6:
-            playerDamage = 0;
-            //+10 damage buff
-            sharpensword = 2;
-            break;
-        case 7:
-            playerDamage = 0;
-            //drink potion
-            if(potions > 0){
-                if(Class == "Rogue"){
-                    feedback.push(AlertSuccess("You drank a potion and healed <strong>35 health</strong>."));
-                    playerHealth += 35;
-                }
-                else{
-                    feedback.push(AlertSuccess("You drank a potion and healed <strong>30 health</strong>."));
-                    playerHealth += 30;
-                }
-                potions--;
-                playerUsedPotion = true;
-            }
-            else{
-                feedback.push(AlertDanger("You search your pocket for a potion but you don't find one. Your stupidity has let you down."));
-            }
-            break;
-        case 8:
-            playerDamage = 0;
-            //roll the dice
-            var x = Math.floor(Math.random() * 6);
-            if(x == 0){
-                feedback.push(AlertWarning("Roll the dice gives you 20 damage!"));
-                playerDamage = 20;
-            }
-            else if(x == 1){
-                feedback.push(AlertWarning("You and your enemy's health are swapped!"));
-                var a = playerHealth;
-                playerHealth = enemyHealth;
-                enemyHealth = a;
-            }
-            else if(x == 2){
-                feedback.push(AlertWarning("The enemy gets 20 extra damage!"));
-                RLDEBuff = true;
-                RLDEBUFFValue = 20;
-            }
-            else if(x == 3){
-                feedback.push(AlertWarning("Roll the dice gives you 30 damage!"));
-                playerDamage = 30;
-            }
-            else if(x == 4){
-                feedback.push(AlertWarning("The enemy gets 35 extra damage!"));
-                RLDEBuff = true;
-                RLDEBUFFValue = 35;
-            }
-            else if(x == 5){
-                feedback.push(AlertWarning("You find 3 potions!"));
-                potions += 3;
-            }
-            else{
-                feedback.push(AlertWarning("Nothing happend..."));
-            }
-            break;
-        default:
-            break;
-    } //Attack Selection
 
-    //Sharpen Sword Then Lunge Combo
-    if(attackSelection == 4 && lastAttack == 6){
-        SharpenSword_Then_Lunge_Combo += 1;
-        if(playerDamage > Math.floor(SharpenSword_Then_Lunge_Combo * 2.5) && SharpenSword_Then_Lunge_Combo > 2){
-            enemyBlockBuff = true;
-        }
-    }
-
-    //Calculate Enemy Damage
-    enemyDamage = Math.floor((Math.random() * 20) + 2);
-    if(Difficulty == "Medium"){
-        enemyDamage += 5;
-    }
-    else if(Difficulty == "Hard"){
-        enemyDamage += 15;
-    }
-    else if(Difficulty == "Insane"){
-        enemyDamage += Math.floor((Math.random() * 10) + 15);
-        if(Class != 5 && Class != 12 && Class != 14 && Class != 15 && Class != 16 && Class != 17){
-            enemyDamage += 6;
-        }
-    }
-    if(enemybuff == 1){
-        RLDEBuff = true;
-        RLDEBUFFValue += 15;
-        feedback.push(AlertDanger("The enemy gets a 15 damage buff!"));
-    }
-    enemybuff--;
-    if(RLDEBuff){
-        RLDEBuff = false;
-        enemyDamage += RLDEBUFFValue;
-    }
-
-    //More Damage for Losing Player
-    if(enemyHealth > playerHealth && playerDamage > 10){
-        playerDamage += Math.floor(Math.random() * 10) + 5;
-        console.log("enemy has more health");
-    }
-    else if(enemyHealth < playerHealth){
-        enemyDamage += 5;
-        console.log("player has more health");
-    }
-
-    //Damage Buff?
-    if(sharpensword == 1 && (attackSelection == 1 ||attackSelection == 2 || attackSelection == 3 ||attackSelection == 4)){
-        playerDamage += 10;
-        feedback.push(AlertWarning("You get a <strong>10 damage</strong> buff!"));
-        sharpensword--;
-    }
-    else if(sharpensword == 1){
-
-    }
-    else if(lastAttack == 6 && attackSelection == 6){
-        feedback.push(AlertWarning("You try to sharpen your sword but there is no effect!"));
-        sharpensword--;
-    }
-    else if(sharpensword == 2){
-        sharpensword--;
-    }
-
-    //Repeated Attack?
-    if(lastAttack == attackSelection && (attackSelection == 1 || attackSelection == 2 || attackSelection == 3 || attackSelection == 4)){
-        feedback.push(AlertWarning("You repeated the attack and this time isn't as strong."));
-        playerDamage = Math.floor(playerDamage / 2);
-    }
-
-    //Enemy Parry + Damage
-    if(enemyBlockBuff == true && Math.floor(Math.random() * 4.5) == 0){
-        feedback.push(AlertDanger("<strong>But!</strong> The enemy blocked your attack!"));
-        playerDamage = 0;
-    }
-    else if(Math.floor((Math.random() * 7) + 0) == 0){
-        feedback.push(AlertDanger("<strong>But!</strong> The enemy blocked your attack!"));
-        playerDamage = 0;
-    }
-
-    //Find a potion?
-    if(Class == "Rogue" || Difficulty == "Easy"){
-        if(Math.floor((Math.random() * 4.5)) == 0){
-            feedback.push(AlertSuccess("You have found a potion!"));
-            potions++;
-        }
-    }
-    else if(Math.floor((Math.random() * 6)) == 0){
-        feedback.push(AlertSuccess("You have found a potion!"));
-        potions++;
-    }
-
-    //Class_Pre_Damage()
-    Class_Pre_Damage();
-
-    //Deal Damage
-    if(playerDamage > 0){
-        enemyHealth -= playerDamage;
-        feedback.push(AlertSuccess("You dealt <strong>" + playerDamage + "</strong> damage!"));
-    }
-    if(parry == 2 && lastAttack == attackSelection){
-        feedback.push(AlertInfo("You repeated parry but there was no effect!"));
-    }
-    else if(parry == 1){
-        feedback.push(AlertSuccess("The enemy did <strong>" + enemyDamage + "</strong> damage but was blocked by your parry!"));
-    }
-    else{
-        feedback.push(AlertDanger("The enemy did <strong>" + enemyDamage + "</strong> damage!"));
-        playerHealth -= enemyDamage;
-    }
-    parry--;
-
-    //Special heal - lunge
-    if(attackSelection == 4 && playerDamage > 0){
-        playerHealth += playerDamage;
-        feedback.push(AlertSuccess("Your lunge healed you by <strong>" + playerDamage + "</strong> health."));
-    }
 
     //Next Round
     enemyBlockBuff = false;
@@ -511,6 +307,52 @@ function Class_Pre_Damage(){
             var bleed = Math.floor(Math.random() * 250) + 50;
             feedback.push(AlertDanger("You bleed " + bleed + " health."));
             playerHealth -= bleed;
+            break;
+        case "Vampire":
+            break;
+        case "Dragon":
+            break;
+        case "Dwarf":
+            break;
+        case "Reaper":
+            break;
+    }
+}
+
+function ClassBasedAttack(){
+     switch(Class){
+        case "Rogue":
+            break;
+        case "Paladin":
+            break;
+        case "Goblin":
+            break;
+        case "Thief":
+            break;
+        case "Alchemist":
+            break;
+        case "Knight":
+            var knightHeal = Math.floor((Math.random() * 2) + 3);
+            feedback.push(AlertInfo("Your knightly strength healed you by " + knightHeal + "!"));
+            playerHealth += knightHeal;
+            break;
+        case "Orc":
+            if(Math.floor(Math.random() * 2) == 0){
+                feedback.push(AlertInfo("Your Orc strength gave you an extra <strong>15</strong> damage!"));
+                enemyHealth -= 15;
+            }
+            break;
+        case "Elf":
+            break;
+        case "Witch":
+            break;
+        case "Troll":
+            break;
+        case "Samurai":
+            break;
+        case "Giant":
+            break;
+        case "Ogre":
             break;
         case "Vampire":
             break;
