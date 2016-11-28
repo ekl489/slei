@@ -52,27 +52,24 @@ A fantasy themed strategic turn based battle game with a wide range of classes a
 
 ###Slei Classes###
 
-  - Light weight
+- Light weight
     - Goblin - extra 8 damage - 70 health
     - Rogue - potions +5 hp, more potion drops, 100 hp
     - Paladin - no potions but can heal 10-20 (or small chance or 0) anytime, 100 hp
     - Thief - 50 health - sometimes can use steal: don't take damage, enemy loses half their health
     - Alchemist - 30 hp, poison knife, finds more potions
-
-  - Tank
+- Tank
     - Samurai - 600 health, takes triple damage, parry will block in two moves
     - Giant - player: 500 hp, enemy: 600hp, misses alot but does 4 x damage, enemy does 3 x damage
     - Vampire - 1000 hp, uses double own health to attack, enemy + 100 hp, bleeds 5 - 10 hp each round
     - Ogre - 1000 hp, bleeds 20-50 hp every round
     - Troll - damage 4/5? 500 health
-
- - Midrange
+- Midrange
     - Knight - heals + 3-4 each turn - 120 hp
     - Witch - curse - 140 hp
     - Orc - random extra 15 damage, 120 hp
     - Elf - randomly dodge enemy attack 120 hp
-
- - Special
+- Special
     - Reaper - buffs can stack + soul tear: makes enemy bleed and takes no damage - 70 health
     - Dragon - special playset: breath fire, bite, claw, no potions, dodge and gust (rare), rage (rare) add 15 damage, 550 hp enemy, enemy + 600 hp
     - Dwarf - takes double damage, starts at 30 health, but can sometimes use shield up to gain 120-220 health
