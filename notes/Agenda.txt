@@ -17,6 +17,6 @@
 !-- Bugs --!
 
 !-- Class Balancing --!
--Buff Troll
+-Buff Troll - 300hp? + Can use revive
 -Nerf Goblin - Lower Health?
 -Buff Rogue - More Potions? - Lower Potion Heal?
