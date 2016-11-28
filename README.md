@@ -75,18 +75,17 @@ A fantasy themed strategic turn based battle game with a wide range of classes a
     - Dwarf - takes double damage, starts at 30 health, but can sometimes use shield up to gain 120-220 health
 
  ###Slei Difficulties###
-
- - Easy
+- Easy
     - +20 Health
     - Receives more potion drops
     - Potions are displayed
- - Medium
+- Medium
     - Potions are not displayed
     - Enemy has +5 damage
- - Hard
+- Hard
     - Potions are not displayed
     - Enemy has +15 damage
- - Insane
+- Insane
     - Potions are not displayed
     - Enemy has +15 - 25 damage
     - Enemy has +40 health
