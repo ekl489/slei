@@ -3,13 +3,13 @@
 
 ###Description###
 
-A fantasy themed strategic turn based battle game with a wide range of classes and difficulties to allow more enjoyment.
+A fantasy themed strategic turn based battle game with a wide range of classes and difficulties.
 
 ###Slei Help###
 
 *Setting up a Game:*
 
-1. First select your difficulty, you can select Easy, Medium or Hard. This will affect different aspects of the game greatly. Beginners are recommended to start with the Easy mode.
+1. First select your difficulty, you can select Easy, Medium or Hard. This will affect many different aspects of the game. Beginners are recommended to start with the Easy mode.
 
 2. Once a difficulty has been selected you must now select a class, classes also affect the game but their changes mainly focus on your Health, Damage and Special Attacks. If a class doesn't have any special attacks, they will have the ability to Roll the Dice.
 
@@ -20,7 +20,7 @@ A fantasy themed strategic turn based battle game with a wide range of classes a
 
 - Rolling the dice can have good and bad consequences.
 
-- Unless in Easy mode, the amount of potions the player has is not displayed, so it is vital to be aware of this. It is also recommended that you drink a potion as soon as you can.
+- Unless in Easy mode, the amount of potions the player has is not displayed, so it is vital to keep track of how many potions you have.
 
 - Try to use combinations to put you at an advantage. For example use Sharpen Sword before a Lunge to gain extra health.
 
