@@ -16,7 +16,7 @@
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
 
         <!-- Font -->
-        <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 
         <!-- Slei -->
         <title>Play Slei</title>
