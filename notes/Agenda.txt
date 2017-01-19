@@ -15,6 +15,8 @@
 -Add class event text when needed (Goblin)
 
 !-- Bugs --!
+-Enemy damage is repeated(and both are different values)
+-After drinking a potion, it says you drank it and also that you don't have one.
 
 !-- Class Balancing --!
 -Buff Troll - 300hp? + Can use revive

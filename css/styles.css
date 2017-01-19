@@ -74,7 +74,7 @@ body{
     height: 100%;
 }
 .buttonDropDown:hover .dropDownMenu{
-    display: inline;
+    
 }
 
 /*Table*/
@@ -93,4 +93,12 @@ th{
 
 #potionList1, #potionList2{
     text-align: left;
+}
+
+.difficultyButton{
+    display: none;
+}
+
+.difficultyButton :hover{
+    display: none;
 }
